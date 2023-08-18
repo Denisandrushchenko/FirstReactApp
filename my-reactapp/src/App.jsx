@@ -1,27 +1,38 @@
-import React from 'react';
+
+import { useState } from 'react';
 import './App.css'; 
-import InfoBlock from './component/infoBlock/infoBlock';
-function App() {  
-   const name = 'Denis'
-   const family = 'Andrushchenko'
-   const age = '30'
-   const skills = [' HTML ' , 'JS' , ' CSS ' , 'REACT ' ]
-   const hobbie = ['hobbie1' , 'hobbie2' ,'hobbie3' ,'hobbie4' ,]
-    
-   const menuItems = [ 'Home' , 'About' , 'Blog']
-  return (
-      <div className='App'>  
-      <ul className='menu'>  {menuItems.map(elem => <li key ={elem} className='menu_items'> {elem} </li>)} </ul> 
-      <h1> { `${name}  ${family}`}</h1>
-      <h2> Age {age} years </h2> 
+import Button from './component/UI/Button/Button';
+function App(){ 
 
-      <InfoBlock title ='skills' data = {skills}/>
-      <InfoBlock title ='hobbie' data = {hobbie} />
-      
-      </div>
-  );
-}      
+  let [counter , setCounter] = useState(0);
 
+  const inc = function(){
+    setCounter(counter + 1)
+    console.log('+')
+  } 
+
+  const dec = function(){
+    setCounter(counter - 1)
+    console.log('+')
+  }
+ return (  
+
+    <div className='App'> 
+     <h1> React app</h1>
+        
+        
+          <Button text = '+' 
+            onClick = { inc }
+          > <i class="fa-solid fa-plus"></i> </Button> 
+           <div className='counter'> {counter} </div>
+          <Button text = '-'
+          onClick = { dec }
+          > </Button> 
+        
+        
+    </div>
+ )
+ }
 
 
 export default App;
